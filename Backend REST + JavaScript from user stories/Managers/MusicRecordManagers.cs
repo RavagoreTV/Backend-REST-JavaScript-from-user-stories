@@ -36,6 +36,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
         {
             Data.Add(newRecord);
             return newRecord;
+            //aaaa
         }
 
         public MusicRecords Delete(string title)
