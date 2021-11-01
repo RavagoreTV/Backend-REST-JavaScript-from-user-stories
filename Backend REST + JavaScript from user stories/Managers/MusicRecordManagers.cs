@@ -22,24 +22,40 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
 
         public List<MusicRecords> GetAll()
         {
-            return new List<MusicRecords>(Mrecords);
+            return new List<MusicRecords>(Data);
             // copy constructor
             // Callers should no get a reference to the Data object, but rather get a copy
         }
 
         public MusicRecords GetByTitle(string title)
         {
-            return Mrecords.Find(Mrecord => Mrecord.Title == title);
+            return Data.Find(Mrecord => Mrecord.Title == title);
         }
 
-        public MusicRecords Add(MusicRecords mewrecord)
+        public MusicRecords Add(MusicRecords newRecord)
         {
-            
+            Data.Add(newRecord);
+            return newRecord;
         }
 
-        public MusicRecords Delete(MusicRecords mrecords)
+        public MusicRecords Delete(string title)
         {
+            MusicRecords newRecords = Data.Find(record1 => record1.Title == title);
+            if (newRecords == null) return null;
+            Data.Remove(newRecords);
+            return newRecords;
 
+        }
+
+        public MusicRecords Update(string title, MusicRecords updates)
+        {
+            MusicRecords mrecords = Data.Find(mrecording => mrecording.Title == title);
+            if (mrecords == null) return null;
+            mrecords.Title = updates.Title;
+            mrecords.Artist = updates.Artist;
+            mrecords.Duration = updates.Duration;
+            mrecords.PublicationYear = updates.PublicationYear;
+            return mrecords;
         }
 
     }
