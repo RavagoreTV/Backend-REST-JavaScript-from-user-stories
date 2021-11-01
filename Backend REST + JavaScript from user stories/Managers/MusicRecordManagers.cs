@@ -7,5 +7,6 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
 {
     public class MusicRecordManagers
     {
+
     }
 }
