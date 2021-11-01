@@ -10,7 +10,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
     public class MusicRecordManagers
     {
 
-        private static readonly List<MusicRecords> Mrecords = new List<MusicRecords>
+        private static readonly List<MusicRecords> Data = new List<MusicRecords>
         {
             new MusicRecords() {Title= "99 luftballon", Artist = "Nina", Duration = 3, PublicationYear = 1989},
             new MusicRecords() {Title= "Best song in the world", Artist = "unknown", Duration = 4, PublicationYear = 1994},
@@ -32,15 +32,18 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
             return Mrecords.Find(Mrecord => Mrecord.Title == title);
         }
 
-        public MusicRecords Add(MusicRecords mrecords)
+        public MusicRecords Add(MusicRecords mewrecord)
         {
-            mrecords.Title = GetByTitle();
-            Fbplayer.Add(newplayer);
-            return newplayer;
+            
         }
-       
-        }
-    }
 
+        public MusicRecords Delete(MusicRecords mrecords)
+        {
+
+        }
+
+    }
 }
-}
+
+
+
