@@ -21,7 +21,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
         };
 
 
-        public List<MusicRecords> Filter(string title = null, string artist = null, string sortBy = null)
+        public List<MusicRecords> GetAll(string title = null, string artist = null, string sortBy = null)
             // Optional parameters
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
         {
@@ -34,11 +34,11 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
                 musicrecording = musicrecording.FindAll(mrecord => mrecord.Title != null && mrecord.Title.StartsWith(title));
             }
 
-            //if (artist != null)
-            //{
-            //    musicrecording = musicrecording.FindAll(mrecord1 => mrecord1.Artist != null && mrecord1.Artist.StartsWith(artist));
+            if (artist != null)
+            {
+                musicrecording = musicrecording.FindAll(mrecord1 => mrecord1.Artist != null && mrecord1.Artist.StartsWith(artist));
 
-            //}
+            }
             if (sortBy != null)
             {
                 switch (sortBy.ToLower())
@@ -55,14 +55,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
             return musicrecording;
         }
 
-
-        public List<MusicRecords> GetAll()
-        {
-            return new List<MusicRecords>(Data);
-            // copy constructor
-            // Callers should no get a reference to the Data object, but rather get a copy
-        }
-
+        
         public MusicRecords GetByTitle(string title)
         {
             return Data.Find(Mrecord => Mrecord.Title == title);

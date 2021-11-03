@@ -51,7 +51,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Controllers
         }
 
         [HttpGet("{Filter}")]
-        public IEnumerable<MusicRecords> Get([FromQuery] string title, string artist, [FromQuery] string sortBy)
+        public IEnumerable<MusicRecords> Get([FromQuery] string title, [FromQuery] string artist, [FromQuery] string sortBy)
         {
             return _musicRecordManagers.Filter(title, artist, sortBy);
         }
