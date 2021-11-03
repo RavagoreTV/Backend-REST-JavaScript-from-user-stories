@@ -45,8 +45,22 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers.Tests
         public void UpdateTest()
         {
             var result = records.Add(new MusicRecords() { Artist = "pølsefest", Duration = 4, PublicationYear = 1988, Title = "i sengen" });
-            var updatedmusic = records.Update("asjkjakdsjka", result);
-            Assert.AreEqual("klasdklas", updatedmusic.Title);
+            var updatedmusic = records.Update("i sengen", result);
+            updatedmusic.Title = "What ever";
+            updatedmusic.Artist = "Hej";
+            updatedmusic.Duration = 214;
+            updatedmusic.PublicationYear = 1935;
+
+            result.Title = updatedmusic.Title;
+            result.Artist = updatedmusic.Artist;
+            result.Duration = updatedmusic.Duration;
+            result.PublicationYear = updatedmusic.PublicationYear;
+
+            Assert.AreEqual(result.Title, updatedmusic.Title);
+            Assert.AreEqual(result.Artist, updatedmusic.Artist);
+            Assert.AreEqual(result.Duration, updatedmusic.Duration);
+            Assert.AreEqual(result.PublicationYear, updatedmusic.PublicationYear);
+
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
                 }
             }
             return musicrecording;
-effsfdfd
+
 
         }
 
@@ -78,7 +78,7 @@ effsfdfd
 
         }
 
-        public MusicRecords Update(string , MusicRecords updates)
+        public MusicRecords Update(string title, MusicRecords updates)
         {
             MusicRecords mrecords = Data.Find(mrecording => mrecording.Title == title);
             if (mrecords == null) return null;

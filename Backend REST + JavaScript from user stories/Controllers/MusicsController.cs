@@ -48,8 +48,6 @@ namespace Backend_REST___JavaScript_from_user_stories.Controllers
         public MusicRecords Delete(string title)
         {
             return _musicRecordManagers.Delete(title);
-        }
-        fggf
-
+        }        
     }
 }
