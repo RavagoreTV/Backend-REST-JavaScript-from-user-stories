@@ -24,7 +24,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Controllers
 
         // GET api/<MusicsController>/5
         [HttpGet("{title}")]
-        public MusicRecords Get(string title)
+        public MusicRecords GetByTilte(string title)
         {
             return _musicRecordManagers.GetByTitle(title);
         }
@@ -49,5 +49,12 @@ namespace Backend_REST___JavaScript_from_user_stories.Controllers
         {
             return _musicRecordManagers.Delete(title);
         }
+
+        [HttpGet("{Filter}")]
+        public IEnumerable<MusicRecords> Get([FromQuery] string title, string artist, [FromQuery] string sortBy)
+        {
+            return _musicRecordManagers.Filter(title, artist, sortBy);
+        }
+
     }
 }
