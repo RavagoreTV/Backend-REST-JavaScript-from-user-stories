@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -22,8 +23,8 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
 
 
         public List<MusicRecords> GetAll(string title = null, string artist = null, string sortBy = null)
-            // Optional parameters
-            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
+        // Optional parameters
+        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
         {
             List<MusicRecords> musicrecording = new List<MusicRecords>(Data);
             // copy constructor
@@ -49,13 +50,14 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
                     case "artist":
                         musicrecording = musicrecording.OrderBy(mrecord => mrecord.Artist).ToList();
                         break;
-                    // skip any other properties in the query string
+                        // skip any other properties in the query string
                 }
             }
             return musicrecording;
+effsfdfd
+
         }
 
-        
         public MusicRecords GetByTitle(string title)
         {
             return Data.Find(Mrecord => Mrecord.Title == title);
@@ -76,7 +78,7 @@ namespace Backend_REST___JavaScript_from_user_stories.Managers
 
         }
 
-        public MusicRecords Update(string title, MusicRecords updates)
+        public MusicRecords Update(string , MusicRecords updates)
         {
             MusicRecords mrecords = Data.Find(mrecording => mrecording.Title == title);
             if (mrecords == null) return null;

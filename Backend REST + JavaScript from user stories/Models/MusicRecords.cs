@@ -11,7 +11,8 @@ namespace Backend_REST___JavaScript_from_user_stories.Model
         public string Artist { get; set; }
         public int Duration { get; set; }
         public int PublicationYear { get; set; }
-        //all
+
+        public int Id { get; set; }
 
     }
 }
