@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Backend_REST___JavaScript_from_user_stories.Managers;
+using Backend_REST___JavaScript_from_user_stories.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,36 +14,40 @@ namespace Backend_REST___JavaScript_from_user_stories.Controllers
     [ApiController]
     public class MusicsController : ControllerBase
     {
+        private readonly MusicRecordManagers _musicRecordManagers = new MusicRecordManagers();
         // GET: api/<MusicsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<MusicRecords> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _musicRecordManagers.GetAll();
         }
 
         // GET api/<MusicsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{title}")]
+        public MusicRecords Get(string title)
         {
-            return "value";
+            return _musicRecordManagers.GetByTitle(title);
         }
 
-        // POST api/<MusicsController>
+        //POST api/<MusicsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public MusicRecords Post([FromBody] MusicRecords value)
         {
+            return _musicRecordManagers.Add(value);
         }
 
         // PUT api/<MusicsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{title}")]
+        public MusicRecords Put(string title, [FromBody] MusicRecords value)
         {
+            return _musicRecordManagers.Update(title, value);
         }
 
         // DELETE api/<MusicsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{title}")]
+        public MusicRecords Delete(string title)
         {
+            return _musicRecordManagers.Delete(title);
         }
     }
 }
