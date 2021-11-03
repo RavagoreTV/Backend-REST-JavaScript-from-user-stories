@@ -12,7 +12,6 @@ namespace Backend_REST___JavaScript_from_user_stories.Model
         public int Duration { get; set; }
         public int PublicationYear { get; set; }
 
-        public int Id { get; set; }
 
     }
 }
